@@ -32,4 +32,3 @@ A responsive fitness gym website with smooth scroll animations, phone number val
 - **Input Validation:** Applied regex and logic to ensure correct phone number and user input.
 
 ---
-
