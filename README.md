@@ -4,7 +4,7 @@ A responsive fitness gym website with smooth scroll animations, phone number val
 ---
 
 ## 🌐 Live Demo
-[Click here to view the live dashboard](https://app.netlify.com/projects/ironcore-fitness-gym/overview)
+[Click here to view the live dashboard](https://ironcore-fitness-gym.netlify.app/)
 
 ---
 
