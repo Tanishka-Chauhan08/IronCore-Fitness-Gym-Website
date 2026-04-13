@@ -31,3 +31,5 @@ A responsive fitness gym website with smooth scroll animations, phone number val
 - **DOM Manipulation:** Handled menu toggle, overlay, and animations using JavaScript.  
 - **Input Validation:** Applied regex and logic to ensure correct phone number and user input.
 
+---
+
