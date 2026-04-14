@@ -2,34 +2,34 @@
 const hamburger = document.getElementById('hamburger');
 const mobileDrawer = document.getElementById('mobileDrawer');
 const closeBtn = document.getElementById('closeBtn');
-const drawerOverlay = document.getElementById('drawerOverlay'); // Naya element
+const drawerOverlay = document.getElementById('drawerOverlay'); 
 const drawerLinks = document.querySelectorAll('.drawer-links li a');
 
 // Function to Open Drawer
 const openDrawer = () => {
     mobileDrawer.classList.add('active');
     drawerOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Drawer khulne par peeche ka scroll band
+    document.body.style.overflow = 'hidden'; 
 };
 
 // Function to Close Drawer
 const closeDrawer = () => {
     mobileDrawer.classList.remove('active');
     drawerOverlay.classList.remove('active');
-    document.body.style.overflow = 'auto'; // Scroll wapas on
+    document.body.style.overflow = 'auto'; 
 };
 
 hamburger.addEventListener('click', openDrawer);
 closeBtn.addEventListener('click', closeDrawer);
 
-// --- YAHAN HAI MAGIC: Bahar click karne par close hona ---
+
 drawerOverlay.addEventListener('click', closeDrawer);
 
-// Links click karne par close hona
+
 drawerLinks.forEach(link => {
     link.addEventListener('click', closeDrawer);
 });
-// Close mobile menu when a link is clicked
+
 document.querySelectorAll(".nav-links li a").forEach(n => n.addEventListener("click", () => {
     hamburger.classList.remove("active");
     navLinks.classList.remove("active");
@@ -60,24 +60,24 @@ const phoneInput = document.querySelector("#phone");
 const iti = window.intlTelInput(phoneInput, {
     initialCountry: "in",
     separateDialCode: true,
-    autoPlaceholder: "off", // 1234... wale placeholder ko band karne ke liye
+    autoPlaceholder: "off", 
     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
 });
 
-// Cursor issue fix karne ke liye manual placeholder add karein
+
 phoneInput.placeholder = "Enter phone number";
-// 1. Sirf numbers allow karne ke liye aur 10 digits par rokne ke liye
+
 phoneInput.addEventListener('input', function() {
-    // Sirf digits rakhega, baaki sab uda dega
+    
     this.value = this.value.replace(/\D/g, '');
 
-    // 10 digits se zyada type nahi hone dega
+    
     if (this.value.length > 10) {
         this.value = this.value.slice(0, 10);
     }
 });
 
-// Purana submit listener poora delete karke ye paste karein
+
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault(); 
 
@@ -92,8 +92,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     }
 
     // 2. Google Sheet Connection
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbz8bPFfokxuZnrZX_4QMfp_57cKKzAiXa9fH28Tx3i9yXZYqDBRmdNjpo5jpifR6OVC/exec'; // <-- Apna link yahan paste karein
-
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz8bPFfokxuZnrZX_4QMfp_57cKKzAiXa9fH28Tx3i9yXZYqDBRmdNjpo5jpifR6OVC/exec'; 
     fetch(scriptURL, { method: 'POST', body: new FormData(this) })
     .then(response => {
         const fullNumber = iti.getNumber();
